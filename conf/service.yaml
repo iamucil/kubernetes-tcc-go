@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tcc-hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tcc-hello
+  template:
+    metadata:
+      name: tcc-hello
+      labels:
+        app: tcc-hello
+    spec:
+      containers:
+        - name: hello-world-tcc
+          image: iamucil/tcc-go
+          ports:
+            - containerPort: 8080
